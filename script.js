@@ -25,13 +25,19 @@ function bindData(articles) {
     const newsCardTemplate = document.getElementById("template-news-card");
 
     cardsContainer.innerHTML = "";
-
-    articles.forEach((article) => {
-        if (!article.urlToImage) return;
+  for(let article of articles){
+   if (!article.urlToImage) return;
         const cardClone = newsCardTemplate.content.cloneNode(true);
         fillDataInCard(cardClone, article);
         cardsContainer.appendChild(cardClone);
-    });
+  }
+      
+    // articles.forEach((article) => {
+    //     if (!article.urlToImage) return;
+    //     const cardClone = newsCardTemplate.content.cloneNode(true);
+    //     fillDataInCard(cardClone, article);
+    //     cardsContainer.appendChild(cardClone);
+    // });
 }
 
 function fillDataInCard(cardClone, article) {
