@@ -1,9 +1,9 @@
-      
-      window.addEventListener("load", () => fetchNews(1,"sports"));
-
+window.addEventListener("load", () => fetchNews(1,"sports"));
 function reload() {
     window.location.reload();
 }
+
+// fuction to fetch News Api 
       const fetchNews = async (page,query) => {
             console.log(query);
             var url = 'https://newsapi.org/v2/everything?' +
@@ -15,11 +15,11 @@ function reload() {
             var req = new Request(url);
             let a = await fetch(req);
             let response = await a.json();
-            bindData(response.articles);
+            bindData(response.articles); 
         }
            
 
-
+// function to distribute response of fetched api
 function bindData(articles) {
     const cardsContainer = document.getElementById("cards-container");
     const newsCardTemplate = document.getElementById("template-news-card");
@@ -40,6 +40,7 @@ function bindData(articles) {
     // });
 }
 
+// making a card which is filled with fetched data 
 function fillDataInCard(cardClone, article) {
     const newsImg = cardClone.querySelector("#news-img");
     const newsTitle = cardClone.querySelector("#news-title");
